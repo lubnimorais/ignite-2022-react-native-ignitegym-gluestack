@@ -5,18 +5,16 @@ import { useNavigation } from "@react-navigation/native";
 import BackgroundImg from '@assets/background.png'
 import Logo from '@assets/logo.svg'
 
-import { IAuthNavigatorRoutesProps } from '@routes/auth.routes'
+import { IAuthNavigatorRoutesProps } from "@routes/auth.routes";
 
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 
-
-
-export function SignInScreen() {
+export function SignUpScreen() {
   const navigation = useNavigation<IAuthNavigatorRoutesProps>()
 
-  function handleNewAccount() {
-    navigation.navigate('signUpScreen')
+  function handleGoBack() {
+    navigation.goBack()
   }
 
   return (
@@ -42,28 +40,24 @@ export function SignInScreen() {
             <Text fontSize="$sm" color="$gray100">Treine sua mente e seu corpo</Text>
           </Center>
 
-          <Center gap="$2">
-            <Heading color="$gray100">Acesse a conta</Heading>
+          <Center flex={1} gap="$2">
+            <Heading color="$gray100">Crie sua conta</Heading>
+
+            <Input placeholder="Nome" />
 
             <Input placeholder="E-mail" keyboardType="email-address" autoCapitalize="none" />
 
             <Input placeholder="Senha" secureTextEntry />
 
-            <Button title="Acessar" />
+            <Button title="Criar e acessar" />
           </Center>
 
-          <Center flex={1} justifyContent="flex-end" marginTop="$4">
-            <Text
-              fontFamily="$body"
-              fontSize="$sm"
-              color="$gray100"
-              marginBottom="$3"
-            >
-              Ainda não tem acesso?
-            </Text>
-
-            <Button title="Criar conta" variant="outline" onPress={handleNewAccount} />
-          </Center>
+            <Button 
+              title="Voltar para o login" 
+              variant="outline" 
+              marginTop="$12"
+              onPress={handleGoBack}
+            />
         </VStack>
       </VStack>
     </ScrollView>
