@@ -2,13 +2,13 @@ import { useState } from "react";
 
 import { FlatList } from "react-native";
 
-import { Center, Heading, HStack, VStack } from "@gluestack-ui/themed";
+import { Center, Heading, HStack, VStack, Text } from "@gluestack-ui/themed";
 
 import { IExerciseDTO } from "@dtos/ExerciseDTO";
 
 import { Group } from "@components/Group";
 import { HomeHeader } from "@components/HomeHeader";
-import { Text } from "@gluestack-ui/themed";
+import { ExerciseCard } from "@components/ExerciseCard";
 
 export function HomeScreen() {
   const [isLoading, setIsLoading] = useState(true);
@@ -61,14 +61,16 @@ export function HomeScreen() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 20 }}
           renderItem={({ item: exercise }) => (
-            // <ExerciseCard
+            <ExerciseCard
             //   exercise={exercise}
             //   onPress={() => {
             //     handleOpenExerciseDetails(exercise.id);
             //   }}
-            // />
+            />
           )}
         />
+
+        
       </VStack>
     </Center>
   )
